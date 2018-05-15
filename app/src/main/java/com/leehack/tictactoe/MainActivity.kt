@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.message = object : MessageInterface {
             override fun showMessage(s: String) {
-                Toast.makeText(baseContext, s, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, s, Toast.LENGTH_SHORT).show()
             }
 
         }
