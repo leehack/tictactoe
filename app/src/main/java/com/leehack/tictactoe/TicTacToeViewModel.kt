@@ -10,14 +10,11 @@ class TicTacToeViewModel : ViewModel() {
     var message : MessageInterface? = null
 
     fun onClickedCellAt(x: Int, y: Int) {
-        val status = board.turn
+        val turn = board.turn
         if (board.check(x, y)) {
-            cells["" + x + y] = when (status) {
-                Cell.Status.X -> "X"
-                else -> "O"
-            }
+            cells["" + x + y] = if (turn == Cell.Status.X ) "X" else "O"
             if (board.done) {
-                message?.showMessage("WIN:$status")
+                message?.showMessage("WIN:$turn")
             }
         }
     }
